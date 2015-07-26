@@ -1,6 +1,7 @@
 function onReady() {
 
     var clock = createClock('clock');
+    var clock2 = createClock('clock2');
 
 }
 
