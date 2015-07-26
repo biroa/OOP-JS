@@ -14,7 +14,6 @@ function updateClock(){
     time= formatDigits(date.getHours()) + ":"
     + formatDigits(date.getMinutes()) + ":"
     + formatDigits(date.getSeconds());
-    console.log(time);
     clock.innerHTML = time;
 }
 
