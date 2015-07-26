@@ -1,3 +1,5 @@
+//version 2.1
+
 function onReady() {
 
     var clock = createClock('clock');
