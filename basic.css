@@ -1,4 +1,14 @@
 body{
-    font-family: 'Codystar', cursive;
+    font-family: 'Orbitron', cursive;
     background-color: black;
+}
+
+#content{
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 100px;
+    /*CSS3 Solution for the always in the middle*/
+    transform: translate(-50%,-50%);
 }
