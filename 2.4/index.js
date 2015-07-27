@@ -1,22 +1,31 @@
 //version 2.4
-//First real OOP
 
 function onReady() {
 
     var clock = new Clock('clock');
-    var clock2 = new Clock('clock2');
-
+    var clock2 = new Clock('clock2', -7200000, 'ETC');
+    var d = new Date();
+    console.log(d.getTimezoneOffset() * 60 * 1000);// Faking UTC because JS
+    // runs always the local users time
 }
 
-function Clock(id) {//function
+function Clock(id, offset, label) {//function
+    offset = offset || 0; // instead 0 against null,0,undefined
+    label = label || 'UTC';
+    var d = new Date();
+    //turn minutes to sec(*60) and millisecond(*1000)
+    this.offset = (offset + d.getTimezoneOffset()) * 60 * 1000;
 
     this.updateClock = function () {
         var clock, date, time;
+        //problem:: We create 2 new objects every single second ...
+        //multiply by the 2 method call we create the same date object 4 times
         date = new Date();
+        date = new Date(this.offset + date.getTime());
         clock = document.getElementById(id);
         time = this.formatDigits(date.getHours()) + ":"
         + this.formatDigits(date.getMinutes()) + ":"
-        + this.formatDigits(date.getSeconds());
+        + this.formatDigits(date.getSeconds()) + " " + label;
         clock.innerHTML = time;
     };
 
