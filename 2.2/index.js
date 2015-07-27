@@ -1,4 +1,4 @@
-//version 2.1
+//version 2.2
 
 function onReady() {
 
@@ -7,27 +7,36 @@ function onReady() {
 
 }
 
-function createClock(id){//function
+function createClock(id) {//function
     var c = {};//or new Object();
-        c.updateClock = function(){//method
-            var clock, date, time;
-            date = new Date();
-            clock = document.getElementById(id);
-            time= formatDigits(date.getHours()) + ":"
-            + formatDigits(date.getMinutes()) + ":"
-            + formatDigits(date.getSeconds());
-            clock.innerHTML = time;
-        };
+    c.updateClock = function () {//method
+        var clock, date, time;
+        date = new Date();
+        clock = document.getElementById(id);
+        time = this.formatDigits(date.getHours()) + ":"
+        + this.formatDigits(date.getMinutes()) + ":"
+        + this.formatDigits(date.getSeconds());
+        clock.innerHTML = time;
+    };
 
-    setInterval(c.updateClock,1000);
+    c.formatDigits = function (num) {
+        num = parseInt(num);
+        if (num < 10) {
+            num = '0' + num;
+        }
+
+        return num;
+    }
+
+    setInterval(function(){c.updateClock()}, 1000);
     c.updateClock();
 
     return c;
 }
 
-function formatDigits(num){
+function formatDigits(num) {
     num = parseInt(num);
-    if(num < 10){
+    if (num < 10) {
         num = '0' + num;
     }
 
