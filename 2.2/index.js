@@ -28,19 +28,13 @@ function createClock(id) {//function
         return num;
     }
 
+    //We wrap c.updateClock to a function and force setInterval to call it
+    // as a method
     setInterval(function(){c.updateClock()}, 1000);
     c.updateClock();
 
     return c;
 }
 
-function formatDigits(num) {
-    num = parseInt(num);
-    if (num < 10) {
-        num = '0' + num;
-    }
-
-    return num;
-}
 
 window.onload = onReady;
