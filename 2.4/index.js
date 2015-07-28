@@ -1,4 +1,5 @@
 //version 2.4
+// Problem with this everything is in our constructor
 
 function onReady() {
 
