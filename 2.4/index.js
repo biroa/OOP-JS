@@ -1,5 +1,8 @@
 //version 2.4
-// Problem with this everything is in our constructor
+// Problem with this version 2.4 is that everything is in our constructor
+// to be able to override them we will ensure they are part of the constructor
+// we start this in the version 3.1
+
 
 function onReady() {
 
