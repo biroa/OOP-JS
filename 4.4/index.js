@@ -104,6 +104,9 @@ eu.adambiro.Clock = function (id, offset, label) {
  * We deleted the multiple Date object instantiation
  */
 eu.adambiro.Clock.prototype.version = '1.0';
+/**
+ * Update clock to
+ */
 eu.adambiro.Clock.prototype.updateClock = function () {
     var clock, date, time;
     date = this.d;
@@ -154,16 +157,15 @@ eu.adambiro.Clock.prototype.formatDigits = function (num) {
  * @param label
  * @constructor
  */
-
 eu.adambiro.TextClock = function (id, offset, label) {
     eu.adambiro.Clock.apply(this, arguments);
     console.log(this.version);
 }
-eu.adambiro.TextClock.prototype.version = '1.01';
-eu.adambiro.TextClock.prototype = createObject(eu.adambiro.Clock.prototype, eu.adambiro.TextClock);
 
+eu.adambiro.TextClock.prototype = createObject(eu.adambiro.Clock.prototype, eu.adambiro.TextClock);
+eu.adambiro.TextClock.prototype.version = '1.01'; //overwrite the clock version 1.0
 /**
- * Overwrite the default Functionalities
+ * Overwrite the default Functionality of the Clock constructor obj
  *
  * @param h
  * @param m
