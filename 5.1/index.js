@@ -3,9 +3,12 @@
 
 function onReady() {
 
-    var clock = new eu.adambiro.AlarmClock('clock');
-    var clock2 = new eu.adambiro.TextClock('clock2', -7200000, 'ETC');
+    // Currently the order of calling is important (Clock,TextClock,AlarmClock)
     var clock3 = new eu.adambiro.Clock('clock3', -7200000, 'ETC');
+    var clock2 = new eu.adambiro.TextClock('clock2', -7200000, 'ETC');
+    var clock = new eu.adambiro.AlarmClock('clock');
+
+
     var d = new Date();
 
 
