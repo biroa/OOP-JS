@@ -197,7 +197,7 @@ eu.adambiro.AlarmClock = function (id, offset, label, almHour, almMinutes) {
     this.almHour = almHour;
     this.almMinutes = almMinutes;
 
-    this.dom = document.getElementsById(id);
+    this.dom = document.getElementById(id);
     this.dom.contentEditable = true;
 }
 
